@@ -36,7 +36,7 @@ jobs:
       rust: ${{ steps.decide.outputs.rust }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-      - uses: dorny/paths-filter@7b450fff21473bca461d4b92ce414b9d0420d706
+      - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d
         id: filter
         if: github.event_name == 'pull_request' || github.event_name == 'push'
         with:
@@ -211,7 +211,7 @@ jobs:
           toolchain: 1.95.0
       - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32
       - name: Install cargo-audit + cargo-deny
-        uses: taiki-e/install-action@065d6a08a14e61e89fb0a4c10eecdbdef39c7d8e
+        uses: taiki-e/install-action@6cd13508893c0e7eab5f273c2575d3859bd7229a
         with:
           tool: cargo-audit,cargo-deny
       - name: cargo audit (soft-fail)
