@@ -73,7 +73,7 @@ jobs:
           toolchain: 1.95.0
           components: rustfmt, clippy
       - name: Cache cargo registry + build
-        uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32
+        uses: Swatinem/rust-cache@f0d9c3887740aee45f6153b24b3a6b815192ec16
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
         with:
           python-version: '3.11'
@@ -152,7 +152,7 @@ jobs:
         with:
           toolchain: 1.95.0
       - name: Cache cargo registry + build
-        uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32
+        uses: Swatinem/rust-cache@f0d9c3887740aee45f6153b24b3a6b815192ec16
       - name: cargo test simulator-backed proxy e2e
         run: cargo test -p headroom-proxy --test e2e_simulators
 
@@ -209,7 +209,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4
         with:
           toolchain: 1.95.0
-      - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32
+      - uses: Swatinem/rust-cache@f0d9c3887740aee45f6153b24b3a6b815192ec16
       - name: Install cargo-audit + cargo-deny
         uses: taiki-e/install-action@065d6a08a14e61e89fb0a4c10eecdbdef39c7d8e
         with:
@@ -241,7 +241,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4
         with:
           toolchain: 1.95.0
-      - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32
+      - uses: Swatinem/rust-cache@f0d9c3887740aee45f6153b24b3a6b815192ec16
       # No Python toolchain: headroom-parity links headroom-core directly and
       # never crosses into the interpreter, so the venv + maturin + `pip
       # install -e .` setup this job used to do was pure overhead.
