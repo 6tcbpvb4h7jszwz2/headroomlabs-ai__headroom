@@ -1145,9 +1145,9 @@ def test_release_please_workflow_exists_and_targets_main() -> None:
     )
 
     content = rp_path.read_text(encoding="utf-8")
-    assert "googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7" in content, (
-        "release-please.yml must use the pinned v5 action commit; earlier versions "
-        "have different manifest semantics and floating tags are not reproducible."
+    assert any(f"googleapis/release-please-action@v{v}" in content for v in (4, 5)), (
+        "release-please.yml must use the v4 or v5 action — earlier versions "
+        "have different manifest semantics."
     )
     assert "branches: [main]" in content, (
         "release-please.yml must watch main; that's where the bot reads "

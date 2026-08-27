@@ -34,7 +34,7 @@ runs:
   using: composite
   steps:
     - name: Set up Python ${{ inputs.python-version }}
-      uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ inputs.python-version }}
 
@@ -43,11 +43,11 @@ runs:
     # extension. Toolchain has to be set up before the editable install path.
     - name: Install Rust toolchain
       if: ${{ inputs.install-mode == 'editable-proxy' }}
-      uses: dtolnay/rust-toolchain@f133eefe930d61f0d9371efd474daf0125ed3dd1
+      uses: dtolnay/rust-toolchain@1.95.0
 
     - name: Cache cargo registry + build
       if: ${{ inputs.install-mode == 'editable-proxy' }}
-      uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32
+      uses: Swatinem/rust-cache@v2
       with:
         workspaces: ". -> target"
 
